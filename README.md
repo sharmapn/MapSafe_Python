@@ -17,33 +17,6 @@ https://github.com/sharmapn/MapSafe-QGIS-plugin
 
 The QGIS plugin is suitable for users already working inside QGIS. This standalone Python version is useful when the goal is to provide a focused geoprivacy tool without requiring a full GIS platform.
 
-## Screenshots
-
-The screenshots below show the intended standalone Python interface. The left panel contains the workflow controls, while the right panel always remains available for map viewing.
-
-### Geomasking workflow
-
-This screen shows the **Safeguard** tab, with minimum and maximum masking distance controls, Spruill-style privacy rating, and the original/masked layers displayed on the map.
-
-![Geomasking screenshot](docs/screenshots/geomasking.svg)
-
-### H3 hexagonal binning
-
-This screen shows the **H3 binning** workflow, where point data is aggregated into H3 hexagonal bins and displayed in the map panel.
-
-![H3 binning screenshot](docs/screenshots/h3_binning.svg)
-
-### Receipt creation
-
-This screen shows the local SHA-256 receipt workflow after an output file has been protected or prepared for verification.
-
-![Receipt created screenshot](docs/screenshots/receipt_created.svg)
-
-### Access and decryption
-
-This screen shows the **Access** tab, where an encrypted MapSafe file and its key file are selected for decryption.
-
-![Access/decryption screenshot](docs/screenshots/access_decrypt.svg)
 
 ## Purpose
 
@@ -136,6 +109,10 @@ The geomasking function currently focuses on point datasets. The process is:
 
 The application includes a simplified Spruill-style privacy rating. It compares each masked point against the original dataset, finds the nearest original point, and estimates how many masked points are no longer easily re-identified. The result is reported as a score from 0 to 100, where a higher score indicates stronger location privacy.
 
+This screen shows the **Safeguard** tab, with minimum and maximum masking distance controls, Spruill-style privacy rating, and the original/masked layers displayed on the map.
+
+![Geomasking screenshot](docs/screenshots/01_data_view.png)
+
 ### 5. H3 hexagonal binning
 
 The H3 binning function converts point data into hexagonal aggregation units. The process is:
@@ -148,6 +125,10 @@ The H3 binning function converts point data into hexagonal aggregation units. Th
 
 The output includes H3 cell ID, point count, and H3 resolution.
 
+This screen shows the **H3 binning** workflow, where point data is aggregated into H3 hexagonal bins and displayed in the map panel.
+
+![H3 binning screenshot](docs/screenshots/02_geomasking.png)
+
 ### 6. Encryption
 
 The application supports file encryption using Fernet symmetric encryption from the Python `cryptography` package. The app encrypts the latest output or current file, writes an encrypted `.mapsafe.enc` file, and writes the corresponding `.mapsafe.key` file. The key file must be stored safely.
@@ -156,9 +137,17 @@ The application supports file encryption using Fernet symmetric encryption from 
 
 The application can create a local receipt for a file. The receipt records the tool name, receipt type, file name, file path, SHA-256 hash, and UTC timestamp. This is not yet blockchain notarisation; it is a local integrity receipt that can later be extended to blockchain-backed verification.
 
+This screen shows the local SHA-256 receipt workflow after an output file has been protected or prepared for verification.
+
+![Receipt created screenshot](docs/screenshots/03_h3_binning.png)
+
 ### 8. Decryption
 
 The Access tab supports decrypting a protected file. The user selects the encrypted file, the key file, and an output destination. The decrypted file is then written to the selected path.
+
+This screen shows the **Access** tab, where an encrypted MapSafe file and its key file are selected for decryption.
+
+![Access/decryption screenshot](docs/screenshots/04_access_receipt.png)
 
 ## Technical stack
 
