@@ -105,13 +105,17 @@ The geomasking function currently focuses on point datasets. The process is:
 7. Reproject the masked output back to the original CRS.
 8. Save and display the masked output.
 
+This screen shows the **Safeguard** tab, with minimum and maximum masking distance controls, Spruill-style privacy rating, and the original/masked layers displayed on the map.
+
+![Geomasking screenshot](docs/screenshots/01_data_view.png)
+
 ### 4. Spruill-style privacy rating
 
 The application includes a simplified Spruill-style privacy rating. It compares each masked point against the original dataset, finds the nearest original point, and estimates how many masked points are no longer easily re-identified. The result is reported as a score from 0 to 100, where a higher score indicates stronger location privacy.
 
-This screen shows the **Safeguard** tab, with minimum and maximum masking distance controls, Spruill-style privacy rating, and the original/masked layers displayed on the map.
+This screen shows the **H3 binning** workflow, where point data is aggregated into H3 hexagonal bins and displayed in the map panel.
 
-![Geomasking screenshot](docs/screenshots/01_data_view.png)
+![H3 binning screenshot](docs/screenshots/02_geomasking.png)
 
 ### 5. H3 hexagonal binning
 
@@ -125,9 +129,9 @@ The H3 binning function converts point data into hexagonal aggregation units. Th
 
 The output includes H3 cell ID, point count, and H3 resolution.
 
-This screen shows the **H3 binning** workflow, where point data is aggregated into H3 hexagonal bins and displayed in the map panel.
+This screen shows the local SHA-256 receipt workflow after an output file has been protected or prepared for verification.
 
-![H3 binning screenshot](docs/screenshots/02_geomasking.png)
+![Receipt created screenshot](docs/screenshots/03_h3_binning.png)
 
 ### 6. Encryption
 
@@ -137,9 +141,7 @@ The application supports file encryption using Fernet symmetric encryption from 
 
 The application can create a local receipt for a file. The receipt records the tool name, receipt type, file name, file path, SHA-256 hash, and UTC timestamp. This is not yet blockchain notarisation; it is a local integrity receipt that can later be extended to blockchain-backed verification.
 
-This screen shows the local SHA-256 receipt workflow after an output file has been protected or prepared for verification.
 
-![Receipt created screenshot](docs/screenshots/03_h3_binning.png)
 
 ### 8. Decryption
 
